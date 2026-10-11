@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLC 8路指示灯模拟</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f0f0f0;
+            padding: 50px;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .light-group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #333;
+            background: #555;
+            transition: all 0.3s;
+        }
+        .light.on {
+            background: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+        .light.on:nth-child(2) { background: #ffaa00; box-shadow: 0 0 15px #ffaa00; }
+        .light.on:nth-child(3) { background: #00ff00; box-shadow: 0 0 15px #00ff00; }
+        .light.on:nth-child(4) { background: #00aaff; box-shadow: 0 0 15px #00aaff; }
+        .light.on:nth-child(5) { background: #ff00ff; box-shadow: 0 0 15px #ff00ff; }
+        .light.on:nth-child(6) { background: #ffff00; box-shadow: 0 0 15px #ffff00; }
+        .light.on:nth-child(7) { background: #00ffff; box-shadow: 0 0 15px #00ffff; }
+        .light.on:nth-child(8) { background: #ffffff; box-shadow: 0 0 15px #ffffff; }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>PLC 8路指示灯模拟</h2>
+    <div class="light-group">
+        <div class="light" id="l1"></div>
+        <div class="light" id="l2"></div>
+        <div class="light" id="l3"></div>
+        <div class="light" id="l4"></div>
+        <div class="light" id="l5"></div>
+        <div class="light" id="l6"></div>
+        <div class="light" id="l7"></div>
+        <div class="light" id="l8"></div>
+    </div>
+    <div class="controls">
+        <button onclick="toggle(1)">灯1</button>
+        <button onclick="toggle(2)">灯2</button>
+        <button onclick="toggle(3)">灯3</button>
+        <button onclick="toggle(4)">灯4</button>
+        <button onclick="toggle(5)">灯5</button>
+        <button onclick="toggle(6)">灯6</button>
+        <button onclick="toggle(7)">灯7</button>
+        <button onclick="toggle(8)">灯8</button>
+    </div>
+    <script>
+        function toggle(num) {
+            const light = document.getElementById('l' + num);
+            light.classList.toggle('on');
+        }
+    </script>
+</body>
+</html>
